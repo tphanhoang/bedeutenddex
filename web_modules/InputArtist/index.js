@@ -44,7 +44,7 @@ export default class InputArtist extends Component {
     return (
       <div className={styles.input}>
         <InputList title="Search Artists"
-              onItemClick={this.selectArtist}
+              onClick={this.selectArtist}
               items={this.props.artists.results}
               autoFilter={true}
               onInputChange={this.onInputArtistChange} />

@@ -1,2 +1,3 @@
-export artists from "./artists"
-export artist from "./artist"
+export pokemons from "./pokemons"
+export pokemon from "./pokemon"
+export pokedex from "./pokedex"

@@ -10,6 +10,8 @@ const store = createStore(combineReducers(reducers))
 
 import App from "./App"
 import PageHome from "PageHome"
+import Pokedex from "Pokedex"
+import PagePokemon from "PagePokemon"
 import PageArtist from "PageArtist"
 import PageDiscover from "PageDiscover"
 import PageNotFound from "PageNotFound"
@@ -31,6 +33,8 @@ export default class Routes extends Component {
        <Provider store={ store }>
           <Router history={browserHistory}>
             <Route path="/" component={App}>
+            <Route path="pokedex" component={Pokedex}/>
+            <Route path="pokemon/:pokemonId" component={PagePokemon}/>
                 <Route path="artist/:artistId" component={PageArtist}/>
                 <Route path="discover" component={PageDiscover}/>
                 <IndexRoute component={PageHome} />

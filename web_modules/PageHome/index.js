@@ -1,33 +1,45 @@
 import React, { Component, PropTypes } from 'react';
+import {connect} from "react-redux"
 import fetchJSON from "app/fetchJSON";
 import consts from "app/consts"
 import InputList from "InputList";
 
+import { get as getPokemons } from "app/reducers/pokemons"
+
+import ListPokemon from "ListPokemon";
+
+@connect(
+    (state) => ({
+        pokemons : state.pokemons
+    }),
+    (dispatch) => ({
+        getPokemons : (value) => dispatch(getPokemons(value)),
+    })
+)
 export default class PageHome extends Component {
 
   state = {
-    kinds: null,
+    pokemons: null,
   };
 
-  fetchKinds(){
-    fetchJSON(consts.api.enpoints.getKinds()).then((response) => {
-        if(!response.error){
-          this.setState({kinds:response.genres})
-        }
-    });
+  static propTypes = {
+      pokemons : PropTypes.object,
+      getPokemons : PropTypes.func,
   };
+
 
   componentDidMount() {
-      this.fetchKinds();
+    this.props.getPokemons(5)
+   //   this.fetchPokemons();
+
   };
 
   render() {
-
+    
     return (
-      <div>
-        <InputList title="Kind"
-              items={this.state.kinds}
-              limit={10} />
+      <div>      
+        <ListPokemon items={this.props.pokemons.results} />
+              
       </div>
     )
   }

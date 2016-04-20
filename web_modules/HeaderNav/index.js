@@ -43,8 +43,8 @@ export default class HeaderNav extends Component {
                     <IndexLink to="/" activeClassName={styles.activeLink} className={styles.link}>
                         <MenuItem>Home</MenuItem>
                     </IndexLink>
-                    <Link to="/discover" activeClassName={styles.activeLink} className={styles.link}>
-                        <MenuItem>Discover</MenuItem>
+                    <Link to="/pokedex" activeClassName={styles.activeLink} className={styles.link}>
+                        <MenuItem>Pokedex</MenuItem>
                     </Link>
           </LeftNav>
         </div>)
