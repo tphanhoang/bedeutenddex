@@ -39,7 +39,7 @@ export default class Routes extends Component {
                 <Route path="discover" component={PageDiscover}/>
                 <IndexRoute component={PageHome} />
             </Route>
-            <Route path="*" component={PageNotFound}/>
+            
           </Router>
         </Provider>
         { __DEVTOOLS__ && devtools }

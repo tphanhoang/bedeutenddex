@@ -53,7 +53,7 @@ export default class CardExampleWithAvatar extends Component {
               return type.type.name+` `
             })
           }
-          avatar={"http://pokeapi.co/media/sprites/pokemon/"+this.props.pid+".png"}
+          avatar={"http://pokeapi.co/media/sprites/pokemon/"+this.props.pokemon[this.props.pid].id+".png"}
         />
 }
                 

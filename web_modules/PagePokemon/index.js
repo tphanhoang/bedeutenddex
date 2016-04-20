@@ -60,14 +60,8 @@ export default class PagePokemon extends Component {
     return (
     
       
-      <div>
-          
-           
-            <ItemDetails name={this.props.pokemon[params.pokemonId].name}
-                         image={"http://pokeapi.co/media/sprites/pokemon/"+params.pokemonId+".png"} />                                                 
-    
-    
-   
+      <div>                     
+        <ItemDetails name={this.props.pokemon[params.pokemonId].name} image={"http://pokeapi.co/media/sprites/pokemon/"+params.pokemonId+".png"} />
       </div>
     
     )}else{

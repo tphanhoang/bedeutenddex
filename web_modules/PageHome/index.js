@@ -29,10 +29,14 @@ export default class PageHome extends Component {
 
 
   componentDidMount() {
-    this.props.getPokemons(5)
+    this.props.getPokemons(2)
    //   this.fetchPokemons();
 
   };
+
+  componentWillReceiveProps(nextProps){
+
+  }
 
   render() {
     
