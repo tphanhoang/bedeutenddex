@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action) {
     }
 }
 
-// redux actions
+//redux actions
 export function get(generation) {
     return {
         types: [
@@ -55,3 +55,19 @@ export function get(generation) {
         )
     }
 }
+
+
+// export function get() {
+//     return {
+//         types: [
+//             GET,
+//             SET,
+//             ERROR,
+//         ],
+//         promise: (
+//             fetchJSON("http://tphanhoang.fr/sdw/pokemon/api/pokemons.php", {
+//                 method: "GET"
+//             })
+//         )
+//     }
+// }

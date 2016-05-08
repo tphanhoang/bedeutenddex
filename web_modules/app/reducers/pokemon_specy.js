@@ -1,16 +1,13 @@
 import fetchJSON from "app/fetchJSON"
 import consts from "app/consts"
+import React, { Component, PropTypes } from 'react';
 
-export const GET = "molotov/artists/GET"
-export const SET = "molotov/artists/SET"
-export const ERROR = "molotov/artists/ERROR"
+export const GET = "bedeutenddex/pokemon_specy/GET"
+export const SET = "bedeutenddex/pokemon_specy/SET"
+export const ERROR = "bedeutenddex/pokemon_specy/ERROR"
 
 const initialState = {
-
-}
-
-const format = (data) => {
-    return {results:data.items}
+  loading:false
 }
 
 // redux reducer
@@ -23,9 +20,10 @@ export default function reducer(state = initialState, action) {
         }
 
     case SET:
+        
         return {
-            ...format(action.response.artists)
-        }
+            ...action.response
+        }        
 
     case ERROR:
         /* eslint-disable no-console */
@@ -44,7 +42,7 @@ export default function reducer(state = initialState, action) {
 }
 
 // redux actions
-export function get(name) {
+export function getSpecy(id) {
     return {
         types: [
             GET,
@@ -52,9 +50,10 @@ export function get(name) {
             ERROR,
         ],
         promise: (
-            fetchJSON(consts.api.enpoints.getSearch(name,"artist"), {
+            fetchJSON(consts.api.enpoints.getPokemonSpecy(id), {
                 method: "GET"
             })
         )
     }
 }
+

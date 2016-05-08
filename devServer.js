@@ -13,11 +13,20 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.use('/', express.static(__dirname + '/'));
+// app.use('/', express.static(__dirname + '/'));
 
-// app.get('*', function(req, res) {
-//   res.sendFile(path.join(__dirname, 'index.html'));
-// });
+function servHtml(req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+};
+
+app.get('/pokedex',servHtml);
+app.get('/pokemon/*',servHtml);
+
+
+app.use(express.static(__dirname));
+
+
+
 
 app.listen(8080, 'localhost', function(err) {
   if (err) {
@@ -27,4 +36,3 @@ app.listen(8080, 'localhost', function(err) {
 
   console.log('Listening at http://localhost:8080');
 });
-

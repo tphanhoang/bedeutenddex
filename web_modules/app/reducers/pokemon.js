@@ -2,24 +2,14 @@ import fetchJSON from "app/fetchJSON"
 import consts from "app/consts"
 import React, { Component, PropTypes } from 'react';
 
-export const GET = "bedeutenddex/pokemon/GET"
-export const SET = "bedeutenddex/pokemon/SET"
-export const ERROR = "bedeutenddex/pokemon/ERROR"
+export const GET = "bedeutenddex/pokemon_detail/GET"
+export const SET = "bedeutenddex/pokemon_detail/SET"
+export const ERROR = "bedeutenddex/pokemon_detail/ERROR"
 
 const initialState = {
-  list:[]
+  loading:false
 }
 
-const format = (data) => {
-    //const {name, genres, images} = data    
-    //const {id,name} = data  
-    var result = ( typeof result != 'undefined' && result instanceof Array ) ? result : []    
-    result[data.id] = data;
-    
-    
-    return result;
-
-}
 
 // redux reducer
 export default function reducer(state = initialState, action) {
@@ -27,15 +17,14 @@ export default function reducer(state = initialState, action) {
 
     case GET:
         return {
-            list:[]
+            loading:true
         }
 
     case SET:
-        console.log(initialState.list);
-        initialState.list[action.response.id]=action.response;
-        return [
-            ...initialState.list
-        ]
+        
+        return {
+            ...action.response
+        }        
 
     case ERROR:
         /* eslint-disable no-console */
@@ -69,7 +58,6 @@ export function getById(id) {
     }
 }
 
-
 // redux actions
 export function getByUrl(url) {
     return {
@@ -85,3 +73,5 @@ export function getByUrl(url) {
         )
     }
 }
+
+
